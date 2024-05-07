@@ -1,0 +1,45 @@
+﻿@model CadProfissionalModel
+@{
+    ViewData["title"] = "cadastro Profissional";
+}
+
+<div class="container">
+    <div>
+        <h1>Faça seu cadastro</h1>
+    </div>
+
+    @*Para Adicionar, o código pega os dados no banco e salva no banco; coloca METHOD de POST no form,
+    entao adiciona o controller e o metodo que quer usar; ex <form asp-controller="Emprestimos" asp-action="Cadastrar">
+    *@
+
+    <form method="post" asp-controller="Cadastro" asp-action="CadProfissional">
+        <div class="mb-3">
+            <label for="NomeProfissional" class="form-label">Nome</label>
+            <input type="text" class="form-control" asp-for="NomeProfissional" id="nome" placeholder="Digite seu Nome">
+            <span asp-validation-for="NomeProfissional" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Email" class="form-label">Email</label>
+            <input type="email" class="form-control" asp-for="emailProfissional" id="email" placeholder="Digite seu Email">
+            <span asp-validation-for="emailProfissional" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="cpf" class="form-label">Cpf</label>
+            <input type="text" class="form-control" asp-for="cpfProfissional" id="cpf" placeholder="Digite seu cpf">
+            <span asp-validation-for="cpfProfissional" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="crmv" class="form-label">CRMV</label>
+            <input type="text" class="form-control" asp-for="crmvlProfissional" id="crmv" placeholder="Digite seu CRMV">
+            <span asp-validation-for="crmvlProfissional" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label for="inputPassword4" class="form-label" placeholder="Crie uma senha">Crie uma Senha</label>
+            <input type="password" class="form-control" id="inputPassword4">
+        </div>
+           <div class="d-flex gap-5 mt-5">        
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a class="btn btn-primary " asp-controller="Cadastro" asp-action="Index"> Voltar </a>
+           </div>
+    </form>
+</div>

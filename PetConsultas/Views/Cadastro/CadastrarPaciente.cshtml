@@ -1,0 +1,32 @@
+﻿@model CadPacienteModel
+@{
+    ViewData["title"] = "cadastro Paciente";
+}
+
+<div class="container">
+    <div>
+        <h1>Faça seu cadastro</h1>
+    </div>
+
+    @*Para Adicionar, o código pega os dados no banco e salva no banco; coloca METHOD de POST no form,
+    entao adiciona o controller e o metodo que quer usar; ex <form asp-controller="Emprestimos" asp-action="Cadastrar">
+    *@
+
+    <form method="post" asp-controller="Cadastro" asp-action="CadPaciente">
+       
+        <div class="mb-3">
+            <label for="cpf" class="form-label">CPF:</label>
+            <input type="text" class="form-control" asp-for="CpfTutor" id="CpfTutor" placeholder="Digite seu cpf">
+            <span asp-validation-for="CpfTutor" class="text-danger"></span>
+        </div>
+       
+        <div class="col-md-6">
+            <label for="inputPassword4" class="form-label" placeholder="Crie uma senha">Senha: </label>
+            <input type="password" class="form-control" id="inputPassword4">
+        </div>
+        <div class="d-flex gap-5 mt-5">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a class="btn btn-primary " asp-controller="Cadastro" asp-action="Index"> Voltar </a>
+        </div>
+    </form>
+</div>
